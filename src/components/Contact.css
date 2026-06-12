@@ -1,0 +1,88 @@
+.contact__panel {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: clamp(2rem, 5vw, 4rem);
+  overflow: hidden;
+}
+
+.contact__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    50% 80% at 80% 0%,
+    color-mix(in srgb, var(--primary) 16%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.contact__panel > * {
+  position: relative;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 1.8rem 0 2.5rem;
+}
+
+.contact__methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.contact__method {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-2);
+  color: var(--text-muted);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.contact__method:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.contact__method > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact__method-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact__method-value {
+  color: var(--text);
+  font-size: var(--step-0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact__ext {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 620px) {
+  .contact__methods {
+    grid-template-columns: 1fr;
+  }
+}
